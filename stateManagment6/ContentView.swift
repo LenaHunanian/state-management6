@@ -17,18 +17,13 @@ struct ContentView: View {
     ]
 
     var body: some View {
-        List{
-            ForEach($settings){ $setting in
-                HStack{
-                    Text(setting.name)
+        
+            List($settings){ $setting in
+               Toggle(setting.name, isOn: $setting.isEnabled)
                         .opacity(setting.isEnabled ? 1 : 0.5)
-                    Spacer()
-                    Toggle("", isOn: $setting.isEnabled)
-                }
             }
         }
     }
-}
 
 
 
